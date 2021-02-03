@@ -54,3 +54,16 @@ func (this *StringOperation) Ttl(key string) *InterfaceResult {
 	return NewInterfaceResult(Redis().TTL(this.ctx,key).Result())
 }
 
+/**
+	添加过期时间
+ */
+func (this *StringOperation) Expire(key string,expire time.Duration)  {
+	RedisClient.Expire(this.ctx,key,expire)
+}
+
+/**
+	删除锁
+ */
+func (this *StringOperation) Del(Key string) *InterfaceResult {
+	 return NewInterfaceResult(Redis().Del(this.ctx,Key).Result())
+}
